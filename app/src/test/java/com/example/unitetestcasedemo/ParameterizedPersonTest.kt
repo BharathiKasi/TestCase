@@ -7,9 +7,6 @@ import org.junit.runners.Parameterized
 import org.mockito.ArgumentCaptor
 import org.mockito.Captor
 import org.mockito.Mockito
-import org.mockito.Mockito.times
-import kotlin.concurrent.timer
-import kotlin.text.Typography.times
 
 @RunWith(Parameterized::class)
 class ParameterizedPersonTest(pName:String?, pAge:Int?, pGender:String?, pAddress:String?) {
@@ -17,8 +14,6 @@ class ParameterizedPersonTest(pName:String?, pAge:Int?, pGender:String?, pAddres
     var mAge  = pAge
     var mGender = pGender
     var mAddress = pAddress
-    @Captor
-    private val mArgumentCaptor = ArgumentCaptor.forClass(Person::class.java)
 companion object {
     @JvmStatic
     @Parameterized.Parameters
@@ -33,7 +28,6 @@ companion object {
     @Test
     fun addPersonalDetailsTest(){
         var mPerson = Mockito.spy(Person::class.java)
-        var list = arrayOf(mName,mAge,mGender,mAddress)
         mPerson.addPersonDetails(mName,mAge,mGender,mAddress)
         assertEquals(mName,mPerson.getPersonName())
         assertEquals(mAge,mPerson.getPersonAge())

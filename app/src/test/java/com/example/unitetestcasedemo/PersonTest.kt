@@ -8,7 +8,6 @@ import org.mockito.Mockito.verify
 
 class PersonTest {
 
-
     /**
      * In this method we used mock for mocking the person object
      * so it will create a dummy object
@@ -35,7 +34,7 @@ class PersonTest {
         var mPerson = Mockito.spy(Person::class.java)
         mPerson.addPersonDetails("Bharathi",23,"Male","Ponneri")
         //doReturn("san").`when`(mPerson).getPersonName() mock getpersonName method
-        assertEquals("bharathi",mPerson.getPersonName())
+        assertEquals("Bharathi",mPerson.getPersonName())
         mPerson.addPersonDetails("san",22,"female","Chennai")
         verify(mPerson, Mockito.times(1)).addPersonDetails("Bharathi",23,"Male","Ponneri")
         verify(mPerson, Mockito.times(1)).addPersonDetails("san",22,"female","Chennai")
